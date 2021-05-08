@@ -26,4 +26,4 @@ def run_json(url, n):
 
 
 if __name__ == '__main__':
-    output = run_json(os.environ['container_url'], 100)
+    output = run_json(os.environ['container_url'], 1000)

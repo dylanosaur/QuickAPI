@@ -15,11 +15,11 @@ def dump_json():
 @dashboard_bp.route('/data')
 def dump_data():
     return [
-         {
+        {
             'name': 'pi',
             'config': 'flask',
             'benchmarks': {'/': 14.6}
-         },
+        },
         {
             'name': 'vbox',
             'config': 'flask',
@@ -29,6 +29,16 @@ def dump_data():
             'name': 'vbox',
             'config': 'express',
             'benchmarks': {'/': 218.68}
+        },
+        {
+            'name': 'vbox',
+            'config': 'springboot',
+            'benchmarks': {'/': 260.09}
+        },
+        {
+            'name': 'vbox',
+            'config': '.net',
+            'benchmarks': {'/': 276.61}
         },
     ]
 
