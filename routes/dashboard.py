@@ -1,6 +1,7 @@
 from flask import Blueprint
 from flask_cors import cross_origin
-from services import run_json, run_ping
+from ..services import run_json, run_ping
+import asyncio
 
 dashboard_bp = Blueprint('dashboard_bp', __name__)
 
@@ -17,18 +18,24 @@ def dump_data():
          {
             'name': 'pi',
             'config': 'flask',
-            'benchmarks': {
-                'ping': 47.06,
-                'json': 301942.17,
-                'google': 119382.43
-            }
+            'benchmarks': {'/': 14.6}
          },
+        {
+            'name': 'vbox',
+            'config': 'flask',
+            'benchmarks': {'/': 212.01}
+        },
+        {
+            'name': 'vbox',
+            'config': 'express',
+            'benchmarks': {'/': 218.68}
+        },
     ]
 
 
 @dashboard_bp.route('/test/<uri>')
 def run_all(uri):
-    run_ping(uri, 100000)
-    run_json(uri, 100000)
-
+    # ping_result = run_ping(uri, 10000)
+    json_result = run_json(uri, 100)
+    return json_result
 

@@ -6,7 +6,7 @@ from numpy import round
 def run_ping(url, n):
     start = time.time()
     for i in range(n):
-        ping(url)
+        ping(f'{url}')
     stop = time.time()
     print(f'{n} pings / {stop-start} s = {round(n/(stop-start), 2)} pings/second')
     return round(n / (stop - start), 2)
